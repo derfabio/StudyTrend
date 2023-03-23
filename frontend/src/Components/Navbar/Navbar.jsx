@@ -4,33 +4,27 @@ import {GrWorkshop} from 'react-icons/gr'
 import {AiFillCloseCircle} from 'react-icons/ai'
 import {TbGridDots, TbRuler3} from 'react-icons/tb'
 import ModalLogin from '../ModalLogin/ModalLogin';
+import ModalRegistration from '../ModalRegistration/ModalRegistration';
 
  
 
 const Navbar = () => {
     const [active, setActive] = useState('navBar');
-    // const [navIsShown, setNavIsShown] = useState (false);
+
 
     const showNav = () => {
         setActive('navBar activeNavbar');
-        // setNavIsShown(true);
     }
 
     const closeNav = () => {
         setActive('navBar');
-        // setNavIsShown(false);
     }
 
-    // const handleClick = () => {
-    //     setOpenModal(true);
-    //     setNavIsShown(false);
-    // }
 
-    
+    const[openModalLogin, setOpenModalLogin] = useState(false);
+    const[openModalRegister, setOpenModalRegister] = useState(false);
 
-    const[openModel, setOpenModal] = useState(false);
-    
-    
+
     return (
    <section className='navbarSection'>
     <header className='header flex'>
@@ -48,13 +42,14 @@ const Navbar = () => {
                     <a href="#" className='navLink'>Home</a>
                 </li>
 
-                <li onClick= {() => setOpenModal(true)} className="navItem">
-                    <a href="#" className='navLink'>Login</a>
-                    <ModalLogin open={openModel}/>
+                <li  className="navItem">
+                    <a onClick= {() => setOpenModalLogin(!openModalLogin)} href="#" className='navLink'>Login</a>
+                    <ModalLogin open={openModalLogin} setOpen={setOpenModalLogin} />
                 </li>
 
-                <li className="navItem">
-                    <a href="#" className='navLink'>Shop</a> 
+                <li  className="navItem">
+                    <a onClick ={() => setOpenModalRegister(!openModalRegister)} href="#" className='navLink'>Register</a> 
+                    <ModalRegistration open={openModalRegister} setOpen={setOpenModalRegister}/>
                 </li>
 
                 <li className="navItem">

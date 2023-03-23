@@ -5,7 +5,7 @@ import Aos from 'aos';
 import 'aos/dist/aos.css' 
 
 
-const ModalLogin = ({open}) => {
+const ModalLogin = ({open, setOpen}) => {
     useEffect(() => {
         Aos.init({duration: 2000})
     }, [])
@@ -13,6 +13,7 @@ const ModalLogin = ({open}) => {
   const[username, setUsername] = useState(null);
   const[password, setPassword] = useState(null);
 
+  
   const handleInput = (e) => {
     const {id, value} = e.target;
     if(id === "username") {
@@ -45,6 +46,7 @@ const ModalLogin = ({open}) => {
         loginUser(requestOptions);
     }
 
+
 };
 
 const loginUser = (requestOptions) => {
@@ -57,29 +59,36 @@ const loginUser = (requestOptions) => {
         console.log(token);
         localStorage.setItem("token", token);
         alert(`Successfully logged in. Welcome, ${username}!`);
+        setOpen(false)
     })
     .catch((error) => {
         console.log(error)
     })
 
 };
-if(!open) return null;
+
+
+    if(!open) return null;
 
 
 
-  return (
+  return ( 
+    
     <div className="form" data-aos="fade-up">
     <div className="form-body">
         <div className="username">
             <label className="form_label" htmlFor="username">User Name </label>
+            <br></br>
             <input className="form__input" type="text" onChange = {(e) => handleInput(e)} id="username" placeholder="UserName"/>
         </div>
         <div className="password">
             <label className="form__label" htmlFor="password">Password </label>
+            <br></br>
             <input className="form__input" type="password" id="password" onChange = {(e) => handleInput(e)} placeholder="Password"/>
         </div>
         <div className="footer">
         <button onClick={()=> handleSubmit()} type="submit" className="btn-login">Login</button>
+        <button onClick={()=> setOpen(false)} type="submit" className="btn-closeLogin">Close</button>
     </div>
         </div>
 </div>
