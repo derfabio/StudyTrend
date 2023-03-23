@@ -2,22 +2,35 @@ import React, {useState} from 'react'
 import './navbar.scss';
 import {GrWorkshop} from 'react-icons/gr'
 import {AiFillCloseCircle} from 'react-icons/ai'
-import {TbGridDots} from 'react-icons/tb'
+import {TbGridDots, TbRuler3} from 'react-icons/tb'
+import ModalLogin from '../ModalLogin/ModalLogin';
 
  
 
 const Navbar = () => {
-    const [active, setActive] = useState('navBar')
+    const [active, setActive] = useState('navBar');
+    // const [navIsShown, setNavIsShown] = useState (false);
+
     const showNav = () => {
-        setActive('navBar activeNavbar')
+        setActive('navBar activeNavbar');
+        // setNavIsShown(true);
     }
 
     const closeNav = () => {
-        setActive('navBar')
+        setActive('navBar');
+        // setNavIsShown(false);
     }
 
+    // const handleClick = () => {
+    //     setOpenModal(true);
+    //     setNavIsShown(false);
+    // }
+
     
-  
+
+    const[openModel, setOpenModal] = useState(false);
+    
+    
     return (
    <section className='navbarSection'>
     <header className='header flex'>
@@ -29,15 +42,15 @@ const Navbar = () => {
         </div>
 
         
-
         <div className={active}>
             <ul className='navLists flex'>
                 <li className="navItem">
                     <a href="#" className='navLink'>Home</a>
                 </li>
 
-                <li className="navItem">
+                <li onClick= {() => setOpenModal(true)} className="navItem">
                     <a href="#" className='navLink'>Login</a>
+                    <ModalLogin open={openModel}/>
                 </li>
 
                 <li className="navItem">

@@ -1,0 +1,58 @@
+:root {
+    --PrimaryColor: hsl(199, 100%, 33%);
+    --SecondaryColor: hsl(187, 85%, 43%);
+    --gradientColor: linear-gradient(to right, hsl(187, 85%, 43%), 
+    hsl(199, 100%, 33%));
+    --whiteColor: hsl(0, 0%, 100%);
+    --blackColor: hsl(201, 33%, 16%);
+    --textColor : hsl(240, 4%, 36%);
+    --whiteColorDream: hsl(0, 0%, 93%);
+    --greyText: rgb(190, 190, 190);
+    --inputColor: rgb(239, 239, 239);
+    --bodyColor: rgb(240, 240, 246);
+    --cardBg: rgb(225, 225, 235);
+  }
+
+
+  .form {
+    top: 30%;
+    left: 20%;
+    width: 50%;
+    height: 35%;
+    display: flex;
+    position: fixed;
+    
+    .form-body{
+        display: flex;
+        width: 100%;
+        transform: translate(10%, 10%);
+        text-align: center;
+        border: 2px black solid;
+        flex-direction: column;
+        justify-content: space-between;
+        font-size: 1.5rem;
+        font-weight: 400;
+        background:var(--gradientColor);
+        box-shadow: 0px 0px 18px 0px var(--blackColor);
+        gap: 17px;
+        padding-top: 3rem;
+        
+            .btn-login{
+                position: absolute;
+                top:50%;
+                background-color:#0a0a23;
+                color: #fff;
+                border:none; 
+                border-radius:10px; 
+                padding:15px;
+                min-height:30px; 
+                min-width: 120px;
+                cursor: pointer;
+                
+                    
+                
+            }
+                
+            
+        }
+    }

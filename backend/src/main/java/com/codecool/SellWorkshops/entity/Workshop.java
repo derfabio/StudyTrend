@@ -21,8 +21,4 @@ public class Workshop {
     private String name;
     private String description;
 
-
-
-
-
 }
