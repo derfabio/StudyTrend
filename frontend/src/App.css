@@ -41,8 +41,12 @@ li{
 }
 
 .icon{
-  font-size: 2rem;
+  font-size: 2.0rem;
   cursor: pointer;
+  align-items: flex-start;
+  font-size: 2vmin;
+  margin-right: 8px;  
+  
 }
 
 .flex{
@@ -62,12 +66,12 @@ li{
   border: none;
   outline: none;
   cursor: pointer;
+  text-align: center;
+  color:var(--whiteColor);
+  display: flex;
+  align-items: center;
 }
 
-.btn a{
-  color: var(--whiteColor);
-  font-weight: 500;
-}
 
 .btn:hover{
   background: var(--SecondaryColor);
@@ -80,10 +84,18 @@ img, video {
 
 input{
   font-size: 100%;
+  padding: 10px;
+  border-radius: 20px;
 }
 
 body{
-  background: var(--bodyColor)
+  background: var(--bodyColor);
+
+}
+
+label {
+  color: var(--whiteColor);
+  font-size: 30px;
 }
 
 

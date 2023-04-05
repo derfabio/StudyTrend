@@ -13,7 +13,6 @@ const ModalLogin = ({open, setOpen}) => {
   const[username, setUsername] = useState(null);
   const[password, setPassword] = useState(null);
 
-  
   const handleInput = (e) => {
     const {id, value} = e.target;
     if(id === "username") {
@@ -45,9 +44,8 @@ const ModalLogin = ({open, setOpen}) => {
         };
         loginUser(requestOptions);
     }
-
-
 };
+
 
 const loginUser = (requestOptions) => {
     fetch(
@@ -58,6 +56,7 @@ const loginUser = (requestOptions) => {
     .then((token) => {
         console.log(token);
         localStorage.setItem("token", token);
+        localStorage.setItem("username", username);
         alert(`Successfully logged in. Welcome, ${username}!`);
         setOpen(false)
     })
@@ -66,12 +65,7 @@ const loginUser = (requestOptions) => {
     })
 
 };
-
-
     if(!open) return null;
-
-
-
   return ( 
     
     <div className="form" data-aos="fade-up">
@@ -87,7 +81,7 @@ const loginUser = (requestOptions) => {
             <input className="form__input" type="password" id="password" onChange = {(e) => handleInput(e)} placeholder="Password"/>
         </div>
         <div className="footer">
-        <button onClick={()=> handleSubmit()} type="submit" className="btn-login">Login</button>
+        <button onClick={()=> handleSubmit()} type="submit" className="btn-login">Login</button>  
         <button onClick={()=> setOpen(false)} type="submit" className="btn-closeLogin">Close</button>
     </div>
         </div>

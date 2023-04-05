@@ -1,30 +1,47 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import {useNavigate} from 'react-router-dom';
+import { useEffect } from 'react';
 import './navbar.scss';
 import {GrWorkshop} from 'react-icons/gr'
 import {AiFillCloseCircle} from 'react-icons/ai'
-import {TbGridDots, TbRuler3} from 'react-icons/tb'
+import {TbGridDots} from 'react-icons/tb'
+import {FiShoppingCart} from 'react-icons/fi'
 import ModalLogin from '../ModalLogin/ModalLogin';
 import ModalRegistration from '../ModalRegistration/ModalRegistration';
 
- 
 
-const Navbar = () => {
+ const Navbar = () => {
+
     const [active, setActive] = useState('navBar');
+    const userFirstName = localStorage.getItem('username')
+    const [user, setUser] = useState(false)
+    const[openModalLogin, setOpenModalLogin] = useState(false);
+    const[openModalRegister, setOpenModalRegister] = useState(false);
+    const navigate = useNavigate();
 
+    useEffect(() => {
+        if(userFirstName) {
+            setUser(userFirstName)
+        };
+    }, [userFirstName, user]);
 
-    const showNav = () => {
+    function showNav() {
         setActive('navBar activeNavbar');
     }
 
-    const closeNav = () => {
+    function closeNav() {
         setActive('navBar');
     }
+    
+    function handleSignOut(){
+       localStorage.clear();
+    }
 
+    function hadleUserPageClick() {
+        navigate("/userpage");
+    }
 
-    const[openModalLogin, setOpenModalLogin] = useState(false);
-    const[openModalRegister, setOpenModalRegister] = useState(false);
-
-
+    
     return (
    <section className='navbarSection'>
     <header className='header flex'>
@@ -39,26 +56,30 @@ const Navbar = () => {
         <div className={active}>
             <ul className='navLists flex'>
                 <li className="navItem">
-                    <a href="#" className='navLink'>Home</a>
+                    <a href="/" className='navLink'>Home</a>
                 </li>
+                {userFirstName ? (
+                    <><li className='navItem'>
+                                <button className='btn' onClick={() => hadleUserPageClick()}>  Hello, {user}</button>
+                        </li>
+                            <li className='navItem'>
+                                    <a className="navLink" onClick={() => handleSignOut()} href="/">Logout</a>
+                            </li>
+                            <li className='navItem' >
+                                <button className='btn'>  <FiShoppingCart className='icon'/> <a href="#"> Buy now</a></button>
+                            </li>
+                    </>    
+                ) : (
+                
+                <><li className="navItem">
+                                    <a onClick={() => setOpenModalLogin(!openModalLogin)} href="#" className='navLink'>Login</a>
+                                    <ModalLogin open={openModalLogin} setOpen={setOpenModalLogin} /></li>
+                                    <li className="navItem">
+                                        <a onClick={() => setOpenModalRegister(!openModalRegister)} href="#" className='navLink'>Registration</a>
+                                        <ModalRegistration open={openModalRegister} setOpen={setOpenModalRegister} />
+                                    </li></>
+                )}
 
-                <li  className="navItem">
-                    <a onClick= {() => setOpenModalLogin(!openModalLogin)} href="#" className='navLink'>Login</a>
-                    <ModalLogin open={openModalLogin} setOpen={setOpenModalLogin} />
-                </li>
-
-                <li  className="navItem">
-                    <a onClick ={() => setOpenModalRegister(!openModalRegister)} href="#" className='navLink'>Register</a> 
-                    <ModalRegistration open={openModalRegister} setOpen={setOpenModalRegister}/>
-                </li>
-
-                <li className="navItem">
-                    <a href="#" className='navLink'>Add workshop</a> 
-                </li>
-
-                <button className='btn'>
-                    <a href="#"> Buy now</a>
-                </button>
                 </ul>
 
                 <div onClick={closeNav} className='closeNavbar'>

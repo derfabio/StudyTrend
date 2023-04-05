@@ -15,9 +15,6 @@ const Home = () => {
       Aos.init({duration: 2000})
   }, [])
 
-
-
-
   return (
     
     <section className= "home">

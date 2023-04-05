@@ -6,64 +6,62 @@ import 'aos/dist/aos.css'
 
 
 const ModalRegistration = ({open, setOpen}) => {
+    const [username, setUsername] = useState(null);
+    const [email, setEmail] = useState(null);
+    const [password, setPassword] = useState(null);
 
     useEffect(() => {
         Aos.init({duration: 2000})
     }, [])
-
-const [username, setUsername] = useState(null);
-const [email, setEmail] = useState(null);
-const [password, setPassword] = useState(null);
-
-
-const handleInputChange = (e) => {
-    const {id, value} = e.target;
-    if (id === "username") {
-        setUsername(value);
-    }
-    if (id === "email") {
-        setEmail(value);
-    }
-    if (id === "password") {
-        setPassword(value);
-    }
-}
-
-const handleSubmit = () => {
-    console.log(username, email, password);
-    if (!username || !email || !password) {
-        alert("Invalid input");
-    } else {
-        const newUser = {
-            "username" : username,
-            "email" : email,
-            "password" : password
+   
+    const handleInputChange = (e) => {
+        const {id, value} = e.target;
+            if (id === "username") {
+                setUsername(value);
         }
-        console.log(newUser)
-        const requestOptions = {
-            method: 'POST',
-            headers: {
-                'Content-Type' : 'application/json'
-            },
-            body: JSON.stringify(newUser)
+            if (id === "email") {
+                setEmail(value);
         }
-        registerUser(requestOptions);
+            if (id === "password") {
+                setPassword(value);
+        }
     }
-};
 
-const registerUser = (requestOptions) => {
-    fetch(
-        'http://localhost:8080/authentication/register',
-        requestOptions
-    ).then((response) => {
-        if (!response.ok) {
-            throw new Error(response.status);
+    const handleSubmit = () => {
+        console.log(username, email, password);
+        if (!username || !email || !password) {
+            alert("Invalid input");
         } else {
-            alert(`Successfully registered. Welcome, ${username}!`);
-            setOpen(false)
+            const newUser = {
+                "username" : username,
+                "email" : email,
+                "password" : password
         }
-    })
-}
+            console.log(newUser)
+        const requestOptions = {
+                method: 'POST',
+                headers: {
+                  'Content-Type' : 'application/json'
+                },
+                body: JSON.stringify(newUser)
+            }
+            registerUser(requestOptions);
+        }
+    };
+
+    const registerUser = (requestOptions) => {
+        fetch(
+            'http://localhost:8080/authentication/register',
+            requestOptions
+        ).then((response) => {
+            if (!response.ok) {
+                throw new Error(response.status);
+            } else {
+                alert(`Successfully registered. Welcome, ${username}!`);
+                setOpen(false)
+            }
+        })
+    }
 
     if (!open) return null
     return (
@@ -89,7 +87,6 @@ const registerUser = (requestOptions) => {
                 <button onClick={() => setOpen(false)} type="submit" className="btn-registrationClose">Close</button>
             </div>
                 </div>
-            
         </div>
     )
 }
