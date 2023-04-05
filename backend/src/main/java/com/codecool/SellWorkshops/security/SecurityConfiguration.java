@@ -1,7 +1,7 @@
 package com.codecool.SellWorkshops.security;
 
 import com.codecool.SellWorkshops.repository.UserRepository;
-import com.codecool.SellWorkshops.service.security_service.RsaKeyProperties;
+import com.codecool.SellWorkshops.service.securityService.RsaKeyProperties;
 import com.nimbusds.jose.jwk.JWK;
 import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
