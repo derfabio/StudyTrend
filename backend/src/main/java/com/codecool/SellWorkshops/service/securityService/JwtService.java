@@ -1,4 +1,4 @@
-package com.codecool.SellWorkshops.service.security_service;
+package com.codecool.SellWorkshops.service.securityService;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;

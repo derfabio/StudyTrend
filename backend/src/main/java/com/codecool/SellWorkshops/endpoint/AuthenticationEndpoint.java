@@ -1,8 +1,8 @@
 package com.codecool.SellWorkshops.endpoint;
 
-import com.codecool.SellWorkshops.entity.User;
+import com.codecool.SellWorkshops.entity.user.User;
 import com.codecool.SellWorkshops.security.dto.RegisterRequest;
-import com.codecool.SellWorkshops.service.security_service.AuthenticationService;
+import com.codecool.SellWorkshops.service.securityService.AuthenticationService;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,8 +26,4 @@ public class AuthenticationEndpoint {
         return authenticationService.login(authentication);
     }
 
-/*    @GetMapping("/test")
-    public String test() {
-        return "'ello";
-    }*/
 }

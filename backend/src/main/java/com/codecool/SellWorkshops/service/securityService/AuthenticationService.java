@@ -1,7 +1,7 @@
-package com.codecool.SellWorkshops.service.security_service;
+package com.codecool.SellWorkshops.service.securityService;
 
-import com.codecool.SellWorkshops.entity.Role;
-import com.codecool.SellWorkshops.entity.User;
+import com.codecool.SellWorkshops.entity.user.Role;
+import com.codecool.SellWorkshops.entity.user.User;
 import com.codecool.SellWorkshops.repository.UserRepository;
 import com.codecool.SellWorkshops.security.dto.RegisterRequest;
 import org.springframework.security.core.Authentication;

@@ -1,6 +1,6 @@
 package com.codecool.SellWorkshops.repository;
 
-import com.codecool.SellWorkshops.entity.User;
+import com.codecool.SellWorkshops.entity.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
