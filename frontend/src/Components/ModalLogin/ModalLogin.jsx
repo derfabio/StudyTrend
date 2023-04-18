@@ -13,6 +13,7 @@ const ModalLogin = ({open, setOpen}) => {
   const[username, setUsername] = useState(null);
   const[password, setPassword] = useState(null);
 
+  
   const handleInput = (e) => {
     const {id, value} = e.target;
     if(id === "username") {
@@ -66,6 +67,7 @@ const loginUser = (requestOptions) => {
 
 };
     if(!open) return null;
+
   return ( 
     
     <div className="form" data-aos="fade-up">
