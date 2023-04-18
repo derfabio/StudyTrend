@@ -5,6 +5,7 @@ import com.codecool.SellWorkshops.repository.WorkshopRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class WorkshopService {
@@ -16,5 +17,9 @@ public class WorkshopService {
 
     public List<Workshop> getAllWorkshops() {
         return workshopRepository.findAll();
+    }
+
+    public Optional<Workshop> getWorkshopById(Long id) {
+        return workshopRepository.findWorkshopById(id);
     }
 }

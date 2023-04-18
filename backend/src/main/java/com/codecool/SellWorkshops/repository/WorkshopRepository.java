@@ -7,8 +7,11 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface WorkshopRepository extends JpaRepository<Workshop, Long> {
     List<Workshop> findWorkshopByDateOrderByDate(@Param("date") LocalDateTime localDateTime);
+
+    Optional<Workshop> findWorkshopById(Long id);
 }
