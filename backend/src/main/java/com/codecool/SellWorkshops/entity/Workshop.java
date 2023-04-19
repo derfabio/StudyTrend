@@ -23,13 +23,14 @@ public class Workshop {
     private Double price;
     @Column(columnDefinition = "TEXT")
     private String description;
-    @OneToMany
+    @ManyToMany
     private Set<Category> categories;
 
-    public Workshop(String title, LocalDateTime date, Double price, String description) {
+    public Workshop(String title, LocalDateTime date, Double price, String description, Set<Category> categories) {
         this.title = title;
         this.date = date;
         this.price = price;
         this.description = description;
+        this.categories = categories;
     }
 }
