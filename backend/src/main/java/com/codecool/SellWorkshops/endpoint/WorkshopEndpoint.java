@@ -27,6 +27,7 @@ public class WorkshopEndpoint {
     }
 
     @GetMapping(value = "/{id}")
+
     public Optional<Workshop> getWorkshopById(@PathVariable Long id) {
         return workshopService.getWorkshopById(id);
     }

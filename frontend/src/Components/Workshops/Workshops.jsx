@@ -3,6 +3,8 @@ import '../Main/main.scss'
 import {HiOutlineClipboardCheck} from 'react-icons/hi'
 import{MdDateRange} from 'react-icons/md'
 import moment from "moment";
+import { Link } from "react-router-dom";
+import img1 from '../../Assets/img1.jpeg'
 
 function Workshops() {
 
@@ -13,9 +15,10 @@ function Workshops() {
         const res = await fetch(url);
       const d = await res.json();
       setData(d);
-
         
     }
+   
+    
 
     useEffect(() => {
         fetchWorkshopData();
@@ -28,9 +31,9 @@ function Workshops() {
            return(
             <div key={id} className="singleWorkshop">
 
-            {/* <div className='imageDiv'>
-              <img src={imgSrc} alt={titleWorkshop} />
-              </div> */}
+            <div className='imageDiv'>
+              <img src={img1} alt={title} />
+              </div>
 
               <div className='cardInfo'>
                 <h4 className='titleWorkshop'>
@@ -48,12 +51,14 @@ function Workshops() {
                 </div>
 
                   <div className="desc">
-                    <p>{description}</p>
+                    <p>{description.length > 250 ?
+                      `${description.substring(0, 100)}...` : description}</p>
                   </div>
 
-                  <button className='btn flex'>
-                    DETAILS <HiOutlineClipboardCheck className="icon"/>
-                  </button>
+                  <Link  to={"/detailsworkshop/" + id}>
+                  <button className='btn flex' > DETAILS <HiOutlineClipboardCheck className="icon"/>
+                  </button> 
+                  </Link>
                 </div>
             </div>
            )

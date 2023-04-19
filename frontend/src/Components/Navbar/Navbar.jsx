@@ -66,7 +66,7 @@ import ModalRegistration from '../ModalRegistration/ModalRegistration';
                                     <a className="navLink" onClick={() => handleSignOut()} href="/">Logout</a>
                             </li>
                             <li className='navItem' >
-                                <button className='btn'>  <FiShoppingCart className='icon'/> <a href="#"> Buy now</a></button>
+                                <button className='btn'>  <FiShoppingCart className='icon'/> <a href="#"> Cart</a></button>
                             </li>
                     </>    
                 ) : (

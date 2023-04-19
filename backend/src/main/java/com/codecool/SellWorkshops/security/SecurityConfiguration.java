@@ -42,7 +42,7 @@ public class SecurityConfiguration {
                 .cors(cors -> corsConfigurationSource())
                 .authorizeHttpRequests(authorization -> {
                     authorization.requestMatchers("/authentication/register").permitAll();
-                    authorization.requestMatchers("/api/workshops/all").permitAll();
+                    authorization.requestMatchers("/api/workshops/**").permitAll();
                     authorization.anyRequest().authenticated();
                 })
                 .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)

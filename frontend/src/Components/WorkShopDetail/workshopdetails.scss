@@ -1,0 +1,87 @@
+:root {
+  --PrimaryColor: hsl(199, 100%, 33%);
+  --SecondaryColor: hsl(187, 85%, 43%);
+  --gradientColor: linear-gradient(to right, hsl(187, 85%, 43%),
+      hsl(199, 100%, 33%));
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(201, 33%, 16%);
+  --textColor: hsl(240, 4%, 36%);
+  --whiteColorDream: hsl(0, 0%, 93%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: rgb(239, 239, 239);
+  --bodyColor: rgb(240, 240, 246);
+  --cardBg: rgb(225, 225, 235);
+}
+
+.container-detailsWorkshop {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px;
+  display: flex;
+
+
+  .left-column {
+    width: 65%;
+    position: relative;
+  }
+
+  .left-column img {
+    width: 100%;
+    right: 6rem;
+    top: 5rem;
+  }
+
+  .btn{
+    align-items: flex-start;
+  }
+
+  .right-column {
+    width: 35%;
+    padding: 40px;
+
+    .card {
+      background-color: var(--cardBg);
+      border-radius: 2rem;
+      padding: 20px;
+    }
+
+    .price {
+      font-weight: 300;
+      font-size: 35px;
+      color: #43484D;
+      letter-spacing: -2px;
+
+    }
+
+    .date {
+      font-size: 16px;
+      font-weight: 300;
+      color: #86939E;
+      line-height: 24px;
+      margin-left: 8rem;
+    }
+
+    .title {
+      font-weight: 300;
+      font-size: 30px;
+      color: #43484D;
+      letter-spacing: -2px;
+      margin-bottom: 1rem;
+    }
+
+    .show-hide-text {
+      cursor: pointer;
+      color: var(--PrimaryColor);
+
+    }
+
+  }
+}
+
+.workshop-descriprion {
+  border-bottom: 5px solid var(--blackColor);
+  font-size: 16px;
+  color: var(--blackColor);
+  letter-spacing: 1px;
+  text-decoration: none;
+}
