@@ -30,4 +30,9 @@ public class WorkshopEndpoint {
     public Optional<Workshop> getWorkshopById(@PathVariable Long id) {
         return workshopService.getWorkshopById(id);
     }
+
+    @GetMapping(value = "/category/{category-id}")
+    public List<Workshop> getWorkshopByCategoryId(@PathVariable (name = "category-id") long id) {
+        return workshopService.getWorkshopsByCategoryId(id);
+    }
 }

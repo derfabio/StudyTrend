@@ -5,7 +5,6 @@ import com.codecool.SellWorkshops.repository.CategoryRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class CategoryService {
@@ -14,11 +13,16 @@ public class CategoryService {
     public CategoryService(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }
-    public Category getCategoryByCategoryName(String category) {
-        return categoryRepository.findCategoryByName(category).orElseThrow(() -> new RuntimeException("This category does not exist (yet)!"));
-    }
 
     public List<Category> getAllCategories() {
         return categoryRepository.findAll();
+    }
+
+    public Category getCategoryByCategoryName(String category) {
+        return categoryRepository.findCategoryByName(category).orElseThrow(() -> new RuntimeException("This category does not exist!"));
+    }
+
+    public Category getCategoryById(long id) {
+        return categoryRepository.findCategoryById(id).orElseThrow(() -> new RuntimeException("This category does not exist!"));
     }
 }

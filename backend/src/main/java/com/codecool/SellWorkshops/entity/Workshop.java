@@ -1,9 +1,6 @@
 package com.codecool.SellWorkshops.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,13 +22,14 @@ public class Workshop {
     private LocalDateTime date;
     private Double price;
     private String description;
-    @OneToMany
+    @ManyToMany
     private Set<Category> categories;
 
-    public Workshop(String title, LocalDateTime date, Double price, String description) {
+    public Workshop(String title, LocalDateTime date, Double price, String description, Set<Category> categories) {
         this.title = title;
         this.date = date;
         this.price = price;
         this.description = description;
+        this.categories = categories;
     }
 }
